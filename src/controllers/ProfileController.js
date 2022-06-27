@@ -13,6 +13,7 @@ exports.CreateProfile = (req,res) => {
     })
 
 }
+
 exports.UserLogin = (req,res) => {
     const UserName = req.body['UserName'];
     const Password = req.body['Password'];
@@ -34,4 +35,16 @@ exports.UserLogin = (req,res) => {
         }
     })
     
+}
+
+exports.SelectProfile = (req,res) => {
+    const UserName = req.headers["username"];
+    ProfileModel.find({UserName:UserName}, (error,data)=>{
+        if(error){
+            res.status(400).json({status:"Failed", data:error})
+        }
+        else{
+            res.status(200).json({status:"Success", data:data})
+        }
+    })
 }
