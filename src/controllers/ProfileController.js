@@ -12,3 +12,11 @@ exports.CreateProfile = (req,res) => {
     })
 
 }
+exports.UserLogin = (req,res) => {
+    const UserName = req.body['UserName'];
+    const Password = req.body['Password'];
+    // res.status(200).json({status:"Success", data:UserName})
+    // res.status(200).json({status:"Success", data:Password})
+    
+    
+}

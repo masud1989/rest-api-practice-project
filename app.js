@@ -30,7 +30,7 @@ app.use(limiter);
 
 // DB Connection 
 const uri = "mongodb://127.0.0.1:27017/Todo";
-const option = {user:'', pass:''};
+const option = {user:'', pass:'', autoIndex:true};
 mongoose.connect(uri, option, (error) => {
     console.log('Connection Success');
     console.log(error);
