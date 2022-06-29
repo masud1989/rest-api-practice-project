@@ -84,3 +84,17 @@ exports.UpdateStatus = (req,res) => {
         }
     })
 }
+
+exports.RemoveTodo = (req,res) => {
+    const TodoStatus = req.body['TodoStatus'];
+    const _id = req.body['_id'];
+
+    TodoListModel.remove({_id:_id},  (error,data)=>{
+        if(error){
+            res.status(400).json({status:"Delete Failed", data:error})
+        }
+        else{
+            res.status(200).json({status:"Delete Success", data:data})
+        }
+    })
+}
